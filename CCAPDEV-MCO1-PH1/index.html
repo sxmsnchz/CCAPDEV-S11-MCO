@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 
+<!--
+    references:
+    - https://www.cssportal.com/css-menu-generator/
+    - hero bg: https://www.dlsu.edu.ph/wp-content/uploads/2018/08/iv2.png
+    - https://www.w3schools.com/howto/howto_css_hero_image.asp
+-->
+
 <html>
     <head>
         <title>DLSU Organizations</title>
@@ -7,7 +14,32 @@
     </head>
 
     <body>
-        <h1>Welcome to OrgSpace!</h1>
-        <p>hi hello</p>
+        <main>
+            <nav id="menu">
+                <span class="menu-title">DLSU Organizations</span>
+                <input type="checkbox" id="responsive-menu"><label></label>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a class="dropdown-arrow" href="orgs.html">Organizations</a>
+                        <ul class="sub-menus">
+                            <li><a href="org1.html">Org1</a></li>
+                            <li><a href="org2.html"'>Org2</a></li>
+                            <li><a href="org3.html">Org3</a></li>
+                            <li><a href="org4.html">Org4</a></li>
+                            <li><a href="org5.html">Org5</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Explore the LaSalle Community</h1>
+                    <p>Serves as a hub for all organizations that DLSU college students can join.</p>
+                    <a href="#learn-more" class="hero-btn">Learn More</a>
+                </div>
+            </div>
+        </main>
     </body>
 </html>
