@@ -10,7 +10,7 @@ The system allows official organization accounts to create and manage their own 
 
 - View a list of school organizations
 - Access organization profiles and descriptions
-- Comment and Like different organizations
+- Comment on posts of different organizations
 - Updates on recruitment period
 - Store organization data in a database
 - Simple and user-friendly interface
