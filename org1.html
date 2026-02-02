@@ -60,30 +60,9 @@
             <section class="org-body">
                 
                 <div class="org-highlights">
-                    <a href="#hl1">
-                        <img src="assets/AU1.jpg" alt="AU Highlight 1" class="clickable">
-                    </a>
-                    <a href="#hl2">
-                        <img src="assets/AU2.jpg" alt="AU Highlight 2" class="clickable">
-                    </a>
-                    <a href="#hl3">
-                        <img src="assets/AU3.jpg" alt="AU Highlight 3" class="clickable">
-                    </a>
-                </div>
-
-                <div id="hl1" class="lightbox">
-                    <a href="#!" class="lightbox-close">&times;</a>
-                    <img src="assets/AU1.jpg" alt="AU Highlight 1">
-                </div>
-
-                <div id="hl2" class="lightbox">
-                    <a href="#!" class="lightbox-close">&times;</a>
-                    <img src="assets/AU2.jpg" alt="AU Highlight 2">
-                </div>
-
-                <div id="hl3" class="lightbox">
-                    <a href="#!" class="lightbox-close">&times;</a>
-                    <img src="assets/AU3.jpg" alt="AU Highlight 3">
+                    <img src="assets/AU1.jpg" alt="AU Highlight 1" class="lightbox-trigger">
+                    <img src="assets/AU2.jpg" alt="AU Highlight 2" class="lightbox-trigger">
+                    <img src="assets/AU3.jpg" alt="AU Highlight 3" class="lightbox-trigger">
                 </div>
 
                 <div class="org-section">
@@ -132,11 +111,9 @@
                     <div class="org-posts">
 
                         <article class="org-post">
-                            <a href="#img1">
-                                <img src="assets/AU_2ndGA.jpg"
-                                alt="2nd General Assembly"
-                                class="post-image clickable">
-                            </a>
+                            <img src="assets/AU_2ndGA.jpg"
+                            alt="2nd General Assembly"
+                            class="post-image lightbox-trigger">
 
                             <h3>2nd General Assembly</h3>
                             <span class="post-date">January 19, 2026</span>
@@ -155,8 +132,8 @@
                                 As per CSO-PNP Approved: OPA-03116
                             </p>
 
-                            <details class="comments">
-                                <summary class="comment-link">View comments</summary>
+                            <button class="comment-toggle">View comments</button>
+                            <div class="comments hidden">
 
                                 <div class="comment">
                                     <strong>Samantha Sanchez</strong>
@@ -173,20 +150,13 @@
                                     <p>See you all!</p>
                                 </div>
                             
-                            </details>
+                            </div>
                         </article>
 
-                        <div id="img1" class="lightbox">
-                            <a href="#!" class="lightbox-close">&times;</a>
-                            <img src="assets/AU_2ndGA.jpg" alt="2nd General Assembly">
-                        </div>
-
                         <article class="org-post">
-                            <a href="#img2">
-                                <img src="assets/AU_WCD.jpg"
-                                alt="World Children's Day"
-                                class="post-image clickable">
-                            </a>
+                            <img src="assets/AU_WCD.jpg"
+                            alt="World Children's Day"
+                            class="post-image lightbox-trigger">
 
                             <h3>World Children's Day</h3>
                             <span class="post-date">November 20, 2025</span>
@@ -209,8 +179,8 @@
                                 As per CSO-PNP Approved: OPA-02738
                             </p>
 
-                            <details class="comments">
-                                <summary class="comment-link">View comments</summary>
+                            <button class="comment-toggle">View comments</button>
+                            <div class="comments hidden">
 
                                 <div class="comment">
                                     <strong>Lara Turk</strong>
@@ -221,20 +191,13 @@
                                     <strong>DLSU MaFIA</strong>
                                     <p>Yay!</p>
                                 </div>
-                            </details>
+                            </div>
                         </article>
 
-                        <div id="img2" class="lightbox">
-                            <a href="#!" class="lightbox-close">&times;</a>
-                            <img src="assets/AU_WCD.jpg" alt="World Children's Day">
-                        </div>
-
                         <article class="org-post">
-                            <a href="#img3">
-                                <img src="assets/AU_MAUgic.jpg"
-                                alt="MAUgic in Motion"
-                                class="post-image clickable">
-                            </a>
+                            <img src="assets/AU_MAUgic.jpg"
+                            alt="MAUgic in Motion"
+                            class="post-image lightbox-trigger">
 
                             <h3>MAUgic in Motion: Unleashing the Powers Within</h3>
                             <span class="post-date">November 13, 2025</span>
@@ -258,25 +221,27 @@
                                 As per CSO-PNP Approved: OPA-02320
                             </p>
 
-                            <details class="comments">
-                                <summary class="comment-link">View comments</summary>
-
+                            <button class="comment-toggle">View comments</button>
+                            <div class="comments hidden">
                                 <div class="comment">
                                     <strong>Aaliyah Pangan</strong>
                                     <p>Can't wait!</p>
                                 </div>
-                            </details>
+                            </div>
                         </article>
-
-                        <div id="img3" class="lightbox">
-                            <a href="#!" class="lightbox-close">&times;</a>
-                            <img src="assets/AU_MAUgic.jpg" alt="MAUgic in Motion">
-                        </div>
 
                     </div>
                 </div>
             </section>
         </main>
+
+        <div id="js-lightbox" class="js-lightbox hidden">
+            <span class="js-lightbox-close">&times;</span>
+            <img src="" alt="Expanded view">
+        </div>
+
+        <script src="script.js"></script>
+
     </body>
 </html>
 
