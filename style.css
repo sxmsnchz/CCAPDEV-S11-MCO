@@ -744,7 +744,7 @@ body, html {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .create-post {
@@ -792,14 +792,6 @@ body, html {
     transform: translateY(0);
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
 }
-
-.post-actions {
-    display: flex;
-    gap: 10px;
-    justify-content: flex-end;
-    margin-bottom: 8px;
-}
-
 
 .post-actions button {
     background: none;
