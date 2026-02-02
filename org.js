@@ -1,7 +1,7 @@
 // login simulation to test (replace w hardcoded values later)
 const isLoggedIn = true;
-const userRole = "student"; // "student" "org" "admin"
-const currentUser = "student1";
+const userRole = "org"; // "student" "org" "admin"
+const currentUser = "org-au";
 
 document.addEventListener("DOMContentLoaded", () => {
 
