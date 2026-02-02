@@ -104,20 +104,28 @@
                     </div>
 
                 </div>
+                
+                <button id="create-post-btn" class="create-post hidden"> Create Post </button>
 
                 <div class="org-section">
                     <h2>Announcements & Updates</h2>
 
-                    <div class="org-posts">
-
+                    <div class="org-posts">      
                         <article class="org-post">
                             <img src="assets/AU_2ndGA.jpg"
                             alt="2nd General Assembly"
                             class="post-image lightbox-trigger">
 
-                            <h3>2nd General Assembly</h3>
+                            <div class="post-header">
+                                <h3>2nd General Assembly</h3>
+                                <div class="post-actions hidden">
+                                    <button class="edit-post-btn">Edit</button>
+                                    <button class="delete-post-btn">Delete</button>
+                                </div>
+                            </div>
                             <span class="post-date">January 19, 2026</span>
-                            <p>
+                            
+                            <p class="post-content">
                                 Let us fly beyond the ordinary! 💫 <br><br>
                                 The crew is calling, and Archers for UNICEF is ready to welcome its AUdventurers! ⚓️<br> 
                                 Take flight beyond the familiar and step into a journey where every voice matters, every dreamer counts, and every adventure inspires. Fly into the unknown, and let purpose guide your way! 🌟 
@@ -135,19 +143,32 @@
                             <button class="comment-toggle">View comments</button>
                             <div class="comments hidden">
 
-                                <div class="comment">
+                                <div class="comment" data-owner="student1">
                                     <strong>Samantha Sanchez</strong>
-                                    <p>Looking forward to this!</p>
+                                    <p class="comment-text">Looking forward to this!</p>
+
+                                    <div class="comment-actions hidden">
+                                        <button class="edit-comment-btn">Edit</button>
+                                        <button class="delete-comment-btn">Delete</button>
+                                    </div>
                                 </div>
 
-                                <div class="comment">
+                                <div class="comment" data-owner="admin1">
                                     <strong>Ethan Guo</strong>
-                                    <p>Is this open to non-members as well?</p>
+                                    <p class="comment-text">Is this open to non-members as well?</p>
+                                    <div class="comment-actions hidden">
+                                        <button class="edit-comment-btn">Edit</button>
+                                        <button class="delete-comment-btn">Delete</button>
+                                    </div>
                                 </div>
 
-                                <div class="comment">
+                                <div class="comment" data-owner="org-au">
                                     <strong>Archers for UNICEF</strong>
-                                    <p>See you all!</p>
+                                    <p class="comment-text">See you all!</p>
+                                    
+                                    <div class="comment-actions hidden">
+                                        <button class="edit-comment-btn">Edit</button>
+                                        <button class="delete-comment-btn">Delete</button>
                                 </div>
                             
                             </div>
@@ -158,9 +179,15 @@
                             alt="World Children's Day"
                             class="post-image lightbox-trigger">
 
-                            <h3>World Children's Day</h3>
+                            <div class="post-header">
+                                <h3>World Children's Day</h3>
+                                <div class="post-actions hidden">
+                                    <button class="edit-post-btn">Edit</button>
+                                    <button class="delete-post-btn">Delete</button>
+                                </div>
+                            </div>
                             <span class="post-date">November 20, 2025</span>
-                            <p>
+                            <p class="post-content">
                                 "A person's a person, no matter how small" - Dr. Seuss🤗<br><br>
                                 This World Children's Day, we celebrate the wonder, curiosity, and joy that children bring to our communities. 👧 Their voices, their questions, their laughter — each reminds us of the importance of nurturing safe spaces where their dreams can grow. 🌱
                                 <br><br>
@@ -182,14 +209,22 @@
                             <button class="comment-toggle">View comments</button>
                             <div class="comments hidden">
 
-                                <div class="comment">
+                                <div class="comment" data-owner="student2">
                                     <strong>Lara Turk</strong>
-                                    <p>🤗</p>
+                                    <p class="comment-text">🤗</p>
+                                    <div class="comment-actions hidden">
+                                        <button class="edit-comment-btn">Edit</button>
+                                        <button class="delete-comment-btn">Delete</button>
+                                    </div>
                                 </div>
 
-                                <div class="comment">
+                                <div class="comment" data-owner="org-mafia">
                                     <strong>DLSU MaFIA</strong>
-                                    <p>Yay!</p>
+                                    <p class="comment-text">Yay!</p>
+                                    <div class="comment-actions hidden">
+                                        <button class="edit-comment-btn">Edit</button>
+                                        <button class="delete-comment-btn">Delete</button>
+                                    </div>
                                 </div>
                             </div>
                         </article>
@@ -199,9 +234,16 @@
                             alt="MAUgic in Motion"
                             class="post-image lightbox-trigger">
 
-                            <h3>MAUgic in Motion: Unleashing the Powers Within</h3>
+                            <div class="post-header">
+                                <h3>MAUgic in Motion: Unleashing the Powers Within</h3>
+                                <div class="post-actions hidden">
+                                    <button class="edit-post-btn">Edit</button>
+                                    <button class="delete-post-btn">Delete</button>
+                                </div>
+                            </div>
                             <span class="post-date">November 13, 2025</span>
-                            <p>
+
+                            <p class="post-content">
                                 Good news, guiding spirits! 🧙🏻‍♀️ <br><br>
                                 🌲 In the forest, an unknown power calls and reaches out to you. It's your time to guide the hands of adventurers destined to awaken their inner magic and set it in motion. 
                                 <br><br>
@@ -223,9 +265,13 @@
 
                             <button class="comment-toggle">View comments</button>
                             <div class="comments hidden">
-                                <div class="comment">
+                                <div class="comment" data-owner="student3">
                                     <strong>Aaliyah Pangan</strong>
-                                    <p>Can't wait!</p>
+                                    <p class="comment-text">Can't wait!</p>
+                                    <div class="comment-actions hidden">
+                                        <button class="edit-comment-btn">Edit</button>
+                                        <button class="delete-comment-btn">Delete</button>
+                                    </div>
                                 </div>
                             </div>
                         </article>
