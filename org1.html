@@ -14,15 +14,12 @@
 
     <body>
         <main>
-            <nav id="menu">
+             <nav id="menu">
                 <span class="menu-title">DLSU Organizations</span>
-                <input type="checkbox" id="responsive-menu">
-                <label></label>
+                <input type="checkbox" id="responsive-menu"><label></label>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li>
-                        <a class="dropdown-arrow active" href="orgs.html">Organizations</a>
+                    <li><a class="dropdown-arrow active" href="#organizations">Organizations</a>
                         <ul class="sub-menus">
                             <li><a href="org1.html">Archers for UNICEF</a></li>
                             <li><a href="org2.html">Council of Student Organizations</a></li>
@@ -31,12 +28,16 @@
                             <li><a href="org5.html">Management of Financial Institutions Association</a></li>
                         </ul>
                     </li>
-                    
                     <li><a href="contact.html">Contact Us</a></li>
 
-                    <div class="menu-profile">
-                        <img src="assets/profile-icon.png" alt="Profile">
-                    </div>
+
+                    <li class="menu-profile" id="profileMenu">
+                        <button class="profile-btn" id="profileBtn" aria-haspopup="true" aria-expanded="false">
+                        <img src="assets/profile-icon.png" alt="Account" class="profile-icon">
+                        </button>
+
+                        <ul class="profile-dropdown" id="profileDropdown" role="menu" aria-label="Account menu"></ul>
+                    </li>
                 </ul>
             </nav>
 
@@ -326,7 +327,7 @@
         </div>
 
         <script src="org.js"></script>
-
+        
     </body>
 </html>
 
