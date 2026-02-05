@@ -6,6 +6,7 @@ const currentUser = "org-au";
 //FOR ORG PAGE
 document.addEventListener("DOMContentLoaded", () => {
 
+    
     //lightbox
     const lightbox = document.getElementById("js-lightbox");
     const lightboxImg = lightbox?.querySelector("img");
@@ -43,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
             actions.classList.remove("hidden");
         }
     });
+    
 
     //edit/delete post
     function applyPostLogic(post) {
@@ -245,9 +247,13 @@ function renderProfileMenu() {
 
     if (isLoggedIn) {
         profileDropdown.innerHTML= `
-        <li><a href="profile.html">Profile</a></li>
+        <li><button type="button" id="profBtn">Profile</button></li>
         <li><button type="button" id="signOutBtn">Sign Out</button></li>
         `;
+
+        document.getElementById("profBtn").addEventListener("click", () => {
+            window.location.href="profile.html";
+        });
 
         document.getElementById("signOutBtn").addEventListener("click", () => {
             isLoggedIn = false;
