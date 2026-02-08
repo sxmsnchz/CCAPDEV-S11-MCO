@@ -1,0 +1,156 @@
+.reviews-header {
+    padding: 56px 24px;
+    text-align: center;
+    background: #f5f7f5;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.reviews-header h1 {
+    font-size: 2.6rem;
+    font-weight: 900;
+    color: #046307;
+}
+
+.reviews-header p {
+    margin-top: 10px;
+    color: #444;
+}
+
+.reviews-section {
+    max-width: 800px;
+    margin: 40px auto 80px;
+    padding: 0 24px;
+}
+
+.review-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 22px;
+    border: 1px solid #e6e6e6;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+}
+
+.review-user {
+    font-size: 0.9rem;
+    color: #444;
+    margin-bottom: 12px;
+}
+
+.star-rating {
+    display: flex;
+    gap: 8px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    margin-bottom: 14px;
+}
+
+.star-rating span {
+    color: #ccc;
+}
+
+.star-rating span.active {
+    color: #046307;
+}
+
+#reviewText {
+    width: 100%;
+    min-height: 120px;
+    border-radius: 14px;
+    border: 1px solid #ddd;
+    padding: 14px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    margin-bottom: 14px;
+}
+
+.submit-review {
+    background: #046307;
+    color: #ffffff;
+    border: none;
+    border-radius: 999px;
+    padding: 10px 26px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.submit-review:hover {
+    background: #1e5716;
+}
+
+.reviews-list {
+    margin-top: 32px;
+    display: grid;
+    gap: 18px;
+}
+
+.review-item {
+    background: #fafafa;
+    border-radius: 14px;
+    padding: 16px;
+    border: 1px solid #e6e6e6;
+}
+
+.review-item strong {
+    color: #046307;
+}
+
+.review-stars {
+    color: #046307;
+    font-size: 1.2rem;
+    margin: 6px 0;
+}
+
+.review-item p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.rating-summary {
+    background: #ffffff;
+    border: 1px solid #e6e6e6;
+    border-radius: 16px;
+    padding: 20px;
+    margin: 24px 0;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.05);
+}
+
+.average-score {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.average-score span {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #046307;
+}
+
+.average-stars {
+    font-size: 1.5rem;
+    color: #046307;
+    margin: 6px 0;
+}
+
+.rating-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.rating-filters button {
+    background: #f2f2f2;
+    border: 1px solid #ddd;
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.rating-filters button.active,
+.rating-filters button:hover {
+    background: #046307;
+    color: #ffffff;
+    border-color: #046307;
+}
