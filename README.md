@@ -25,7 +25,16 @@ The system allows official organization accounts to create and manage their own 
 ## Database Overview
 
 The database stores information such as:
-- *insert here*
+- Student logins:
+- juan.delacruz@dlsu.edu.ph / password123
+- maria.santos@dlsu.edu.ph / password123
+- john.lim@dlsu.edu.ph / password123
+  
+- Org logins:
+- codedh@dlsu.edu.ph / password123
+  
+- Admin login:
+- admin@orgspace.dlsu.edu.ph / admin123
 
 ## How to Run the Project
 
