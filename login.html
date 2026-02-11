@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login - OrgSpace</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <main>
+            <nav id="menu">
+                <span class="menu-title">DLSU Organizations</span>
+                <input type="checkbox" id="responsive-menu"><label></label>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a class="dropdown-arrow" href="#organizations">Organizations</a>
+                        <ul class="sub-menus">
+                            <li><a href="org1.html">Archers for UNICEF</a></li>
+                            <li><a href="org2.html">Council of Student Organizations</a></li>
+                            <li><a href="org3.html">Information Security Organization</a></li>
+                            <li><a href="org4.html">La Salle Computer Society</a></li>
+                            <li><a href="org5.html">Management of Financial Institutions Association</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li class="menu-profile" id="profileMenu">
+                        <button class="profile-btn" id="profileBtn" aria-haspopup="true" aria-expanded="false">
+                        <img src="assets/profile-icon.png" alt="Account" class="profile-icon">
+                        </button>
+                        <ul class="profile-dropdown" id="profileDropdown" role="menu" aria-label="Account menu"></ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="login-container" style="max-width: 500px; margin: 50px auto; padding: 0 20px;">
+                <h1 style="color: #046307; margin-bottom: 30px; text-align: center;">Sign In</h1>
+                
+                <form id="loginForm" style="background: #f5f7f5; padding: 30px; border-radius: 14px; border: 1px solid #e6e6e6;">
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 700; color: #046307;">Email Address</label>
+                        <input type="email" id="email" name="email" 
+                               placeholder="your.email@dlsu.edu.ph" required
+                               style="width: 100%; padding: 12px 14px; border: 1px solid #D9D9D9; border-radius: 10px; font-size: 0.95rem;">
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 700; color: #046307;">Password</label>
+                        <input type="password" id="password" name="password" 
+                               placeholder="Enter your password" required
+                               style="width: 100%; padding: 12px 14px; border: 1px solid #D9D9D9; border-radius: 10px; font-size: 0.95rem;">
+                    </div>
+
+                    <div style="margin-bottom: 25px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 700; color: #046307;">I am a:</label>
+                        <select id="userType" name="userType" required
+                                style="width: 100%; padding: 12px 14px; border: 1px solid #D9D9D9; border-radius: 10px; font-size: 0.95rem;">
+                            <option value="">Select user type</option>
+                            <option value="student">Student</option>
+                            <option value="organization">Organization</option>
+                            <option value="admin">Administrator</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" style="width: 100%; padding: 14px; background: #046307; color: #fff; border: none; border-radius: 10px; font-weight: 700; cursor: pointer; font-size: 1rem;">
+                        Sign In
+                    </button>
+                </form>
+
+                <div style="margin-top: 25px; text-align: center;">
+                    <p style="color: #666;">Don't have an account? <a href="register.html" style="color: #046307; font-weight: 700;">Sign up here</a></p>
+                    <p style="margin-top: 10px;"><a href="index.html" style="color: #046307;">← Back to Home</a></p>
+                </div>
+
+                <div style="margin-top: 30px; padding: 20px; background: rgba(4, 99, 7, 0.05); border-radius: 10px; border-left: 4px solid #046307;">
+                    <h3 style="color: #046307; margin-bottom: 15px; font-size: 1rem;">Demo Credentials:</h3>
+                    <p style="margin: 8px 0; font-size: 0.9rem; color: #333;">
+                        <strong>Student 1:</strong> juan.delacruz@dlsu.edu.ph / password123
+                    </p>
+                    <p style="margin: 8px 0; font-size: 0.9rem; color: #333;">
+                        <strong>Student 2:</strong> maria.santos@dlsu.edu.ph / password123
+                    </p>
+                    <p style="margin: 8px 0; font-size: 0.9rem; color: #333;">
+                        <strong>Student 3:</strong> john.lim@dlsu.edu.ph / password123
+                    </p>
+                    <p style="margin: 8px 0; font-size: 0.9rem; color: #333;">
+                        <strong>Organization:</strong> codedh@dlsu.edu.ph / password123
+                    </p>
+                    <p style="margin: 8px 0; font-size: 0.9rem; color: #333;">
+                        <strong>Admin:</strong> admin@orgspace.dlsu.edu.ph / admin123
+                    </p>
+                </div>
+            </div>
+
+            <script src="script.js"></script>
+            <script>
+                document.getElementById('loginForm').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const email = document.getElementById('email').value;
+                    const password = document.getElementById('password').value;
+                    const userType = document.getElementById('userType').value;
+
+                    const result = auth.login(email, password, userType);
+                    
+                    if (result.success) {
+                        alert(`Welcome back, ${result.user.firstName || result.user.orgName || 'User'}!`);
+                        
+                        switch(result.userType) {
+                            case 'student':
+                                window.location.href = 'profile-student.html';
+                                break;
+                            case 'organization':
+                                window.location.href = 'profile-organization.html';
+                                break;
+                            case 'admin':
+                                window.location.href = 'profile-admin.html';
+                                break;
+                        }
+                    } else {
+                        alert(result.message);
+                    }
+                });
+
+                const currentUser = auth.getCurrentUser();
+                if (currentUser.isLoggedIn) {
+                    switch(currentUser.userType) {
+                        case 'student':
+                            window.location.href = 'profile-student.html';
+                            break;
+                        case 'organization':
+                            window.location.href = 'profile-organization.html';
+                            break;
+                        case 'admin':
+                            window.location.href = 'profile-admin.html';
+                            break;
+                    }
+                }
+            </script>
+        </main>
+    </body>
+</html>
