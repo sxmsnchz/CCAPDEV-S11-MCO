@@ -449,9 +449,10 @@ body, html {
 .contact-title {
     text-align: center;
     font-size: 3rem;
-    font-weight: 800;
+    font-weight: 900;
     color:#046307;
     margin-bottom: 14px;
+    letter-spacing: 0.12em;
 }
 
 .contact-form-section{
@@ -502,6 +503,7 @@ body, html {
   padding: 12px 14px;
   font-size: 0.95rem;
   outline: none;
+  resize: none;
 }
 
 .field input:focus,
@@ -1290,6 +1292,7 @@ body, html {
     font-size: 0.95rem;
     font-family: inherit;
     margin-bottom: 14px;
+    resize: none;
 }
 
 .submit-review {
