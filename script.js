@@ -683,11 +683,20 @@ if (orgLink && orgSection) {
 
 //------ START OF REVIEWS PAGE JS PORTION ------
 
-// -- Static user (temp, replace with real login)
-const currentUserStudent = {
-    id: 1,
-    name: "Juan Dela Cruz"
-};
+const session = auth.getCurrentUser();
+const isLoggedIn = session.isLoggedIn;
+
+let reviewUserName = null;
+
+if (isLoggedIn && session.user) {
+    if (session.userType === "student") {
+        reviewUserName = `${session.user.firstName} ${session.user.lastName}`;
+    } else if (session.userType === "organization") {
+        reviewUserName = session.user.orgName;
+    } else if (session.userType === "admin") {
+        reviewUserName = `${session.user.firstName} ${session.user.lastName}`;
+    }
+}
 
 let selectedRating = 0;     // user star selection
 let reviews = [];           // all submitted reviews
@@ -696,6 +705,14 @@ let currentFilter = "all";  // current star filter
 const stars = document.querySelectorAll("#starRating span");  // list of stars
 const reviewText = document.getElementById("reviewText");     // user review textbox
 const reviewsList = document.getElementById("reviewsList");   // display wall of reviews
+
+const currentUserEl = document.getElementById("currentUser");
+
+if (isLoggedIn && reviewUserName) {
+    currentUserEl.textContent = reviewUserName;
+} else {
+    currentUserEl.textContent = "Guest";
+}
 
 // -- Handle star clicks
 stars.forEach(star => {
@@ -715,6 +732,11 @@ function updateStars(rating) {
 // -- Submit review
 document.getElementById("submitReview").addEventListener("click", () => {
 
+    if (!isLoggedIn) {
+        alert("You must be logged in to leave a review.");
+        return;
+    }
+
     // validation for empty review
     if (!selectedRating || reviewText.value.trim() === "") {
         alert("You cannot leave a review empty. Please provide a review.");
@@ -723,7 +745,7 @@ document.getElementById("submitReview").addEventListener("click", () => {
 
     // review object format
     const review = {
-        user: currentUserStudent.name,
+        user: reviewUserName,
         rating: Number(selectedRating),
         comment: reviewText.value,
         date: new Date().toLocaleDateString()
