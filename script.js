@@ -546,7 +546,9 @@ const profileMenu = document.getElementById("profileMenu");
 function renderProfileMenu() {
     profileDropdown.innerHTML = "";
 
-    if (isLoggedIn) {
+    const session = auth.getCurrentUser();
+
+    if (session.isLoggedIn) {
         profileDropdown.innerHTML= `
         <li><button type="button" id="profBtn">Profile</button></li>
         <li><button type="button" id="signOutBtn">Sign Out</button></li>
@@ -564,7 +566,7 @@ function renderProfileMenu() {
         });
     } else {
         profileDropdown.innerHTML = `
-        <li><a href="signin.html">Sign In</a></li>
+        <li><a href="login.html">Sign In</a></li>
         `;
     }
 }
