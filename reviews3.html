@@ -48,49 +48,59 @@
                 <p>See what students are saying and share your experience.</p>
             </section>
 
-            <!-- RATING SUMMARY -->
-            <div class="rating-summary">
-                <div class="average-score">
-                    <span id="averageRating">0.0</span>
-                    <div class="average-stars" id="averageStars"></div>
-                    <small id="totalReviews">(0 reviews)</small>
+            <!-- REVIEWS WRAPPER -->
+            <div id="reviewsContainer">
+
+                <!-- RATING SUMMARY -->
+                <div class="rating-summary">
+                    <div class="average-score">
+                        <span id="averageRating">0.0</span>
+                        <div class="average-stars" id="averageStars"></div>
+                        <small id="totalReviews">(0 reviews)</small>
+                    </div>
+
+                    <div class="rating-filters">
+                        <button data-filter="all" class="active">All</button>
+                        <button data-filter="5">5 ★</button>
+                        <button data-filter="4">4 ★</button>
+                        <button data-filter="3">3 ★</button>
+                        <button data-filter="2">2 ★</button>
+                        <button data-filter="1">1 ★</button>
+                    </div>
                 </div>
 
-                <div class="rating-filters">
-                    <button data-filter="all" class="active">All</button>
-                    <button data-filter="5">5 ★</button>
-                    <button data-filter="4">4 ★</button>
-                    <button data-filter="3">3 ★</button>
-                    <button data-filter="2">2 ★</button>
-                    <button data-filter="1">1 ★</button>
-                </div>
+                <!-- REVIEW FORM -->
+                <section class="reviews-section">
+                    <div class="review-card">
+                        <div class="review-user">
+                            Logged in as: <strong id="currentUser"></strong>
+                        </div>
+
+                        <div class="star-rating" id="starRating">
+                            <span data-value="1">★</span>
+                            <span data-value="2">★</span>
+                            <span data-value="3">★</span>
+                            <span data-value="4">★</span>
+                            <span data-value="5">★</span>
+                        </div>
+
+                        <textarea id="reviewText" placeholder="Write your review here..."></textarea>
+
+                        <button class="submit-review" id="submitReview">
+                            Submit Review
+                        </button>
+                    </div>
+
+                    <!-- REVIEW LIST -->
+                    <div class="reviews-list" id="reviewsList"></div>
+                </section>
+
             </div>
 
-            <!-- REVIEW FORM -->
-            <section class="reviews-section">
-                <div class="review-card">
-                    <div class="review-user">
-                        Logged in as: <strong id="currentUser"></strong>
-                    </div>
-
-                    <div class="star-rating" id="starRating">
-                        <span data-value="1">★</span>
-                        <span data-value="2">★</span>
-                        <span data-value="3">★</span>
-                        <span data-value="4">★</span>
-                        <span data-value="5">★</span>
-                    </div>
-
-                    <textarea id="reviewText" placeholder="Write your review here..."></textarea>
-
-                    <button class="submit-review" id="submitReview">
-                        Submit Review
-                    </button>
-                </div>
-
-                <!-- REVIEW LIST -->
-                <div class="reviews-list" id="reviewsList"></div>
-            </section>
+            <!-- LOGIN WARNING -->
+            <p id="reviewsLoginWarning" class="hidden" style="text-align:center; margin-top:20px;">
+                Please log in to view and submit reviews.
+            </p>
         </main>
 
         <script src="script.js"></script> 
