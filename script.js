@@ -555,7 +555,25 @@ function renderProfileMenu() {
         `;
 
         document.getElementById("profBtn").addEventListener("click", () => {
-            window.location.href="profile.html";
+            const session = auth.getCurrentUser();
+            if (!session.isLoggedIn) {
+                window.location.href = "signin.html";
+                return;
+            }
+
+            switch (session.userType) {
+                case "student": 
+                    window.location.href = "profile-student.html";
+                    break;
+                case "organization":
+                    window.location.href = "profile-organization.html";
+                    break;
+                case "admin":
+                    window.location.href = "profile-admin.html";
+                    break;
+                default:
+                    window.location.href = "index.htm;"
+            }
         });
 
         document.getElementById("signOutBtn").addEventListener("click", () => {
