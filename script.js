@@ -307,6 +307,16 @@ const session = auth.getCurrentUser();
 const isLoggedIn = session.isLoggedIn;
 const userRole = session.userType;
 const currentUser = session.user?.email || null;
+
+const pageOrg = document.body.dataset.org;
+
+const isOrgOwner =
+    userRole === "organization" &&
+    currentUser === pageOrg;
+
+const canManagePosts =
+    userRole === "admin" || isOrgOwner;
+
 let displayName = "Guest";
 
 if (isLoggedIn && session.user) {
@@ -351,7 +361,7 @@ if (isLoggedIn && session.user) {
 
         actions.classList.add("hidden");
 
-        if (isLoggedIn && (userRole === "organization" || userRole === "admin")) {
+        if (canManagePosts) {
             actions.classList.remove("hidden");
         }
     });
@@ -396,7 +406,7 @@ if (isLoggedIn && session.user) {
    
 
         // enforce permissions
-        if (!(isLoggedIn && (userRole === "organization" || userRole === "admin"))) {
+        if (!canManagePosts) {
             actions?.classList.add("hidden");
         }
 
@@ -512,7 +522,7 @@ if (isLoggedIn && session.user) {
 
     const postsContainer = document.querySelector(".org-posts");
 
-    if (isLoggedIn && (userRole === "organization" || userRole === "admin")) {
+    if (canManagePosts) {
         createBtn?.classList.remove("hidden");
     }
 
