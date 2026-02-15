@@ -358,8 +358,24 @@ const displayName =
     function applyPostLogic(post) {
         const editBtn = post.querySelector(".edit-post-btn");
         const deleteBtn = post.querySelector(".delete-post-btn");
-        const content = post.querySelector(".post-content");
         const actions = post.querySelector(".post-actions");
+        const content = post.querySelector(".post-content");
+
+        // ----- READ MORE LOGIC -----
+        if (content.scrollHeight > 150) {
+            content.classList.add("collapsed");
+
+            const readMoreBtn = document.createElement("button");
+            readMoreBtn.textContent = "See more";
+            readMoreBtn.className = "read-more-btn";
+
+            post.querySelector(".comment-toggle").before(readMoreBtn);
+
+            readMoreBtn.addEventListener("click", () => {
+                const expanded = content.classList.toggle("collapsed");
+                readMoreBtn.textContent = expanded ? "See more" : "See less";
+            });
+        }
 
         // enforce permissions
         if (!(isLoggedIn && (userRole === "organization" || userRole === "admin"))) {
