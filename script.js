@@ -526,10 +526,12 @@ if (isLoggedIn && session.user) {
         createBtn?.classList.remove("hidden");
     }
 
+    // open modal
     createBtn?.addEventListener("click", () => {
         modal.classList.remove("hidden");
     });
 
+    // cancel modal
     cancelPost?.addEventListener("click", () => {
         modal.classList.add("hidden");
         titleInput.value = "";
@@ -537,21 +539,38 @@ if (isLoggedIn && session.user) {
         imageInput.value = "";
     });
 
+    // submit post
     submitPost?.addEventListener("click", () => {
         const title = titleInput.value.trim();
         const content = contentInput.value.trim();
-        const image = imageInput.value.trim();
 
         if (!title || !content) {
             alert("Title and content are required.");
             return;
         }
 
+        // If user selected image from device
+        if (imageInput.files && imageInput.files[0]) {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                createPost(e.target.result, title, content);
+            };
+
+            reader.readAsDataURL(imageInput.files[0]);
+        } else {
+            createPost("", title, content);
+        }
+    });
+
+    // actual post creation function
+    function createPost(imageSrc, title, content) {
+
         const post = document.createElement("article");
         post.className = "org-post";
 
         post.innerHTML = `
-            ${image ? `<img src="${image}" class="post-image lightbox-trigger">` : ""}
+            ${imageSrc ? `<img src="${imageSrc}" class="post-image lightbox-trigger">` : ""}
 
             <div class="post-header">
                 <h3>${title}</h3>
@@ -571,19 +590,19 @@ if (isLoggedIn && session.user) {
 
         postsContainer.prepend(post);
 
-        // attach logic
+
         applyPostLogic(post);
 
-        // attach lightbox to new image
+        
         post.querySelectorAll(".lightbox-trigger").forEach(attachLightbox);
 
+        // reset modal
         modal.classList.add("hidden");
         titleInput.value = "";
         contentInput.value = "";
         imageInput.value = "";
+    }
     });
-
-});
 
 // END OF ORG PAGE
 
