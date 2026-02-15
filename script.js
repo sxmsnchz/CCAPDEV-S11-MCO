@@ -574,7 +574,7 @@ if (isLoggedIn && session.user) {
 
             <div class="post-header">
                 <h3>${title}</h3>
-                <div class="post-actions">
+                <div class="post-actions ${canManagePosts ? "" : "hidden"}">
                     <button class="edit-post-btn">Edit</button>
                     <button class="delete-post-btn">Delete</button>
                 </div>
@@ -585,15 +585,60 @@ if (isLoggedIn && session.user) {
             <div class="post-content">${content}</div>
 
             <button class="comment-toggle">View comments</button>
+
             <div class="comments hidden"></div>
+
+            <div class="add-comment hidden">
+                <textarea class="comment-input" placeholder="Write a comment..."></textarea>
+                <button class="submit-comment">Post</button>
+            </div>
+
+            <p class="login-warning hidden">Log in to add a comment.</p>
         `;
 
         postsContainer.prepend(post);
 
-
         applyPostLogic(post);
 
-        
+        // Apply comment visibility + submission logic to this new post
+        const addCommentBox = post.querySelector(".add-comment");
+        const warning = post.querySelector(".login-warning");
+        const submitBtn = post.querySelector(".submit-comment");
+        const textarea = post.querySelector(".comment-input");
+        const commentsContainer = post.querySelector(".comments");
+
+        if (isLoggedIn) {
+            addCommentBox?.classList.remove("hidden");
+            warning?.classList.add("hidden");
+        } else {
+            addCommentBox?.classList.add("hidden");
+            warning?.classList.remove("hidden");
+        }
+
+        submitBtn?.addEventListener("click", () => {
+            const text = textarea.value.trim();
+            if (!text) return;
+
+            const comment = document.createElement("div");
+            comment.className = "comment";
+            comment.dataset.owner = currentUser;
+
+            comment.innerHTML = `
+                <strong>${displayName}</strong>
+                <p class="comment-text">${text}</p>
+                <div class="comment-actions hidden">
+                    <button class="edit-comment-btn">Edit</button>
+                    <button class="delete-comment-btn">Delete</button>
+                </div>
+            `;
+
+            commentsContainer.appendChild(comment);
+            textarea.value = "";
+
+            applyCommentPermissions(comment);
+        });
+
+
         post.querySelectorAll(".lightbox-trigger").forEach(attachLightbox);
 
         // reset modal
