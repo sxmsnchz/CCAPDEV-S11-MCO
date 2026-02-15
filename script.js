@@ -83,7 +83,7 @@ class AuthSystem {
             { email: 'maria.santos@dlsu.edu.ph', password: 'password123' },
             { email: 'john.lim@dlsu.edu.ph', password: 'password123' }
             ],
-            'organization': { email: 'codedh@dlsu.edu.ph', password: 'password123' },
+            'organization': { email: 'au@dlsu.edu.ph', password: 'password123' },
             'admin': { email: 'admin@orgspace.dlsu.edu.ph', password: 'admin123' }
         };
 
@@ -179,9 +179,9 @@ class AuthSystem {
             case 'organization':
                 return {
                     ...baseUser,
-                    orgName: 'CodeDH',
-                    description: 'Programming and Digital Humanities Organization',
-                    profileImage: 'https://api.dicebear.com/7.x/shapes/svg?seed=codedh'
+                    orgName: 'Archers for UNICEF',
+                    description: 'Archers for UNICEF is a DLSU-based organization committed to supporting UNICEF initiatives and empowering students to advocate for women and children\'s rights through meaningful events, partnerships, and outreach programs.',
+                    profileImage: 'assets/AU_logo1.png'
                 };
             case 'admin':
                 return {
@@ -341,7 +341,7 @@ const currentUser = session.user?.email || null;
 
         actions.classList.add("hidden");
 
-        if (isLoggedIn && (userRole === "org" || userRole === "admin")) {
+        if (isLoggedIn && (userRole === "organization" || userRole === "admin")) {
             actions.classList.remove("hidden");
         }
     });
@@ -355,7 +355,7 @@ const currentUser = session.user?.email || null;
         const actions = post.querySelector(".post-actions");
 
         // enforce permissions
-        if (!(isLoggedIn && (userRole === "org" || userRole === "admin"))) {
+        if (!(isLoggedIn && (userRole === "organization" || userRole === "admin"))) {
             actions?.classList.add("hidden");
         }
 
@@ -471,7 +471,7 @@ const currentUser = session.user?.email || null;
 
     const postsContainer = document.querySelector(".org-posts");
 
-    if (isLoggedIn && (userRole === "org" || userRole === "admin")) {
+    if (isLoggedIn && (userRole === "organization" || userRole === "admin")) {
         createBtn?.classList.remove("hidden");
     }
 

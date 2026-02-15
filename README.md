@@ -31,7 +31,7 @@ The database stores information such as:
 - john.lim@dlsu.edu.ph / password123
   
 - Org logins:
-- codedh@dlsu.edu.ph / password123
+- au@dlsu.edu.ph / password123
   
 - Admin login:
 - admin@orgspace.dlsu.edu.ph / admin123

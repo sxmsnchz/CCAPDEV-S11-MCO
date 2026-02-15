@@ -192,21 +192,21 @@
                 function initializeProfile(user) {
                     // Demo organization data
                     const orgData = {
-                        name: user.orgName || "CodeDH",
-                        tagline: "Programming and Digital Humanities Organization",
-                        description: "Empowering students through code and digital innovation. We organize hackathons, workshops, and tech talks to foster a community of passionate developers and digital humanists at DLSU.",
-                        type: "Academic/Professional",
-                        contactEmail: user.email || "codedh@dlsu.edu.ph",
+                        name: user.orgName || "Archers for UNICEF",
+                        tagline: "Always for the women and children",
+                        description: "Archers for UNICEF is a DLSU-based organization committed to supporting UNICEF initiatives and empowering students to advocate for women and children's rights through meaningful events, partnerships, and outreach programs.",
+                        type: "Volunteer Organization",
+                        contactEmail: user.email || "au@dlsu.edu.ph",
                         contactPhone: "+63 912 345 6789",
                         president: "John Smith",
                         vicePresident: "Sarah Lee",
                         membersCount: 150,
                         eventsCount: 3,
-                        postsCount: 12,
+                        postsCount: 3,
                         socialMedia: {
-                            facebook: "facebook.com/CodeDH",
-                            twitter: "@CodeDH_DLSU",
-                            instagram: "@codedh_dlsu"
+                            facebook: "facebook.com/ArchersForUNICEF",
+                            twitter: "@ArchersForUNICEF",
+                            instagram: "@archersforunicef_dlsu"
                         },
                         keyMembers: [
                             { name: "John Smith", role: "President" },
@@ -218,7 +218,7 @@
                     };
 
                     // Populate organization data with XSS protection
-                    document.getElementById('orgLogo').src = user.profileImage || "https://api.dicebear.com/7.x/shapes/svg?seed=codedh";
+                    document.getElementById('orgLogo').src = "assets/au_logo1.png";
                     document.getElementById('orgName').textContent = escapeHtml(orgData.name);
                     document.getElementById('orgTagline').textContent = escapeHtml(orgData.tagline);
                     document.getElementById('orgDescription').textContent = escapeHtml(orgData.description);
