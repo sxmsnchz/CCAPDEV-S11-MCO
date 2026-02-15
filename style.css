@@ -290,6 +290,10 @@ body, html {
 	background: #FFFFFF;
 }
 
+.org-section + .org-section {
+    margin-top: 32px;
+}
+
 .orgs-title {
 	text-align: center;
 	font-size: 3rem;
