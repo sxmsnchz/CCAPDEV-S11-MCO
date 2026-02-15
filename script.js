@@ -303,7 +303,11 @@ const AuthGuard = {
 //FOR ORG PAGE
 document.addEventListener("DOMContentLoaded", () => {
 
-    
+const session = auth.getCurrentUser();
+const isLoggedIn = session.isLoggedIn;
+const userRole = session.userType;
+const currentUser = session.user?.email || null;
+
     //lightbox
     const lightbox = document.getElementById("js-lightbox");
     const lightboxImg = lightbox?.querySelector("img");
@@ -553,9 +557,10 @@ function renderProfileMenu() {
         });
 
         document.getElementById("signOutBtn").addEventListener("click", () => {
-            isLoggedIn = false;
+            auth.logout();
             closeProfileDropdown();
             renderProfileMenu();
+            window.location.href = "index.html";
         });
     } else {
         profileDropdown.innerHTML = `
