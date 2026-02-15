@@ -307,14 +307,17 @@ const session = auth.getCurrentUser();
 const isLoggedIn = session.isLoggedIn;
 const userRole = session.userType;
 const currentUser = session.user?.email || null;
+let displayName = "Guest";
 
-const displayName =
-    userRole === "student"
-        ? `${session.user.firstName} ${session.user.lastName}`
-        : userRole === "organization"
-        ? session.user.orgName
-        : `${session.user.firstName} ${session.user.lastName}`;
-
+if (isLoggedIn && session.user) {
+    if (userRole === "student") {
+        displayName = `${session.user.firstName} ${session.user.lastName}`;
+    } else if (userRole === "organization") {
+        displayName = session.user.orgName;
+    } else if (userRole === "admin") {
+        displayName = `${session.user.firstName} ${session.user.lastName}`;
+    }
+}
     //lightbox
     const lightbox = document.getElementById("js-lightbox");
     const lightboxImg = lightbox?.querySelector("img");
@@ -353,7 +356,6 @@ const displayName =
         }
     });
     
-
     //edit/delete post
     function applyPostLogic(post) {
         const editBtn = post.querySelector(".edit-post-btn");
@@ -361,21 +363,37 @@ const displayName =
         const actions = post.querySelector(".post-actions");
         const content = post.querySelector(".post-content");
 
-        // ----- READ MORE LOGIC -----
-        if (content.scrollHeight > 150) {
-            content.classList.add("collapsed");
+        if (content) {
+            content.classList.add("clamp");
 
-            const readMoreBtn = document.createElement("button");
-            readMoreBtn.textContent = "See more";
-            readMoreBtn.className = "read-more-btn";
+        const viewMoreBtn = document.createElement("button");
+        viewMoreBtn.className = "view-more-btn";
+        viewMoreBtn.textContent = "See more";
 
-            post.querySelector(".comment-toggle").before(readMoreBtn);
+        const commentToggle = post.querySelector(".comment-toggle");
 
-            readMoreBtn.addEventListener("click", () => {
-                const expanded = content.classList.toggle("collapsed");
-                readMoreBtn.textContent = expanded ? "See more" : "See less";
-            });
+        if (commentToggle) {
+            post.insertBefore(viewMoreBtn, commentToggle);
+        } else {
+            content.after(viewMoreBtn);
         }
+
+        viewMoreBtn.addEventListener("click", () => {
+            const isExpanded = content.classList.contains("expanded");
+
+            content.classList.toggle("expanded");
+            content.classList.toggle("clamp");
+
+            viewMoreBtn.textContent = isExpanded ? "See more" : "See less";
+        });
+
+        setTimeout(() => {
+            if (content.scrollHeight <= content.clientHeight) {
+                viewMoreBtn.style.display = "none";
+                }
+            }, 50);
+        }
+   
 
         // enforce permissions
         if (!(isLoggedIn && (userRole === "organization" || userRole === "admin"))) {
@@ -535,7 +553,7 @@ const displayName =
 
             <span class="post-date">Just now</span>
 
-            <p class="post-content">${content}</p>
+            <div class="post-content">${content}</div>
 
             <button class="comment-toggle">View comments</button>
             <div class="comments hidden"></div>
@@ -595,7 +613,7 @@ function renderProfileMenu() {
                     window.location.href = "profile-admin.html";
                     break;
                 default:
-                    window.location.href = "index.htm;"
+                    window.location.href = "index.html"
             }
         });
 

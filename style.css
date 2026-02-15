@@ -912,6 +912,7 @@ body, html {
 .post-content.clamp {
     display: -webkit-box;
     -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
     line-clamp: 6;
     overflow: hidden;
 }
@@ -928,6 +929,10 @@ body, html {
     color: #046307;
     font-weight: 900;
     cursor: pointer;
+}
+
+.comment-toggle {
+    display: block;
 }
 
 .view-more-btn:hover {
@@ -1225,6 +1230,23 @@ body, html {
     margin-bottom: 8px;
 }
 
+
+.collapsed {
+    max-height: 150px;  
+    overflow: hidden;
+    position: relative;
+}
+
+.read-more-btn {
+    background: none;
+    display: block;
+    border: none;
+    color: #046307;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+    padding: 0;
+}
 /*end for org page*/
   
 /* --- START OF REVIEWS PAGE CSS --- */
@@ -1385,23 +1407,6 @@ body, html {
     background: #046307;
     color: #ffffff;
     border-color: #046307;
-}
-
-.collapsed {
-    max-height: 150px;  
-    overflow: hidden;
-    position: relative;
-}
-
-.read-more-btn {
-    background: none;
-    display: block;
-    border: none;
-    color: #046307;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 8px;
-    padding: 0;
 }
 
 /* --- END OF REVIEWS PAGE CSS --- */
