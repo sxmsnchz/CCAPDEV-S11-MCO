@@ -308,6 +308,13 @@ const isLoggedIn = session.isLoggedIn;
 const userRole = session.userType;
 const currentUser = session.user?.email || null;
 
+const displayName =
+    userRole === "student"
+        ? `${session.user.firstName} ${session.user.lastName}`
+        : userRole === "organization"
+        ? session.user.orgName
+        : `${session.user.firstName} ${session.user.lastName}`;
+
     //lightbox
     const lightbox = document.getElementById("js-lightbox");
     const lightboxImg = lightbox?.querySelector("img");
@@ -444,7 +451,7 @@ const currentUser = session.user?.email || null;
             comment.dataset.owner = currentUser;
 
             comment.innerHTML = `
-                <strong>${currentUser}</strong>
+                <strong>${displayName}</strong>
                 <p class="comment-text">${text}</p>
                 <div class="comment-actions hidden">
                     <button class="edit-comment-btn">Edit</button>
