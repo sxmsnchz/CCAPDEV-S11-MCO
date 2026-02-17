@@ -20,6 +20,8 @@ body {
 	font-family: "PT Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
+
+/* NAV BAR */
 .menu-title {
     color: #FFFFFF;
     font-size: 20px;
@@ -206,7 +208,9 @@ body {
 	background: #F2E8D8;
 	color: #256B1B;
 }
+/* END OF NAV BAR */
 
+/* HERO */
 #heroSection {
     display: flex;
     align-items: center;
@@ -284,7 +288,9 @@ body, html {
 	transform: translateY(-2px);
 	box-shadow: 0 14px 30px rgba(0,0,0,0.32);
 }
+/* END OF HERO SECTION */
 
+/* INDEX.HTML ORGS SECTION */
 .orgs-section {
 	padding: 56px 148px 70px;
 	background: #FFFFFF;
@@ -375,7 +381,9 @@ body, html {
 	color: #1e5716;
 	text-decoration: underline;
 }
+/* END OF INDEX.HTML ORG SECTION */
 
+/* FAQS */
 .faq-section {
 	position: relative;
 	padding: 80px 48px;
@@ -449,7 +457,9 @@ body, html {
 .faq-item summary:hover {
 	background: rgba(4,99,7,0.08);
 }
+/* END OF FAQS SECTION */
 
+/* CONTACT */
 .contact-title {
     text-align: center;
     font-size: 3rem;
@@ -539,12 +549,6 @@ body, html {
   filter: brightness(0.95);
 }
 
-.form-note{
-  margin-top: 10px;
-  color: #666;
-  font-size: 0.85rem;
-}
-
 .contact-image{
   border-radius: 14px;
   overflow: hidden;
@@ -606,6 +610,7 @@ body, html {
     font-size: 0.95rem;
     line-height: 1.6;
 }
+/* END OF CONTACT PAGE */
 
 @media screen and (max-width: 800px){
 	#menu {position:relative}
@@ -765,17 +770,6 @@ body, html {
 .org-aside {
     align-self: start;
     top: 96px;
-}
-
-.board-list {
-    list-style: none;
-    padding-left: 0;
-}
-
-.board-list li {
-    padding: 8px 0;
-    font-size: 0.95rem;
-    color: #333;
 }
 
 .org-posts {
