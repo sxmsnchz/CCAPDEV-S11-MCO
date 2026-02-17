@@ -67,27 +67,23 @@
                                 </div>
                             </div>
 
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label>Student ID</label>
-                                    <input type="text" id="stuId" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Year Level</label>
-                                    <select id="stuYear" required>
-                                        <option value="">Select Year</option>
-                                        <option value="1">1st Year</option>
-                                        <option value="2">2nd Year</option>
-                                        <option value="3">3rd Year</option>
-                                        <option value="4">4th Year</option>
-                                        <option value="5">5th Year and Above</option>
-                                    </select>
-                                </div>
+                            <div class="form-group">
+                                <label>Student ID Number</label>
+                                <input type="text" id="stuId" minlength="8" maxlength="8" pattern="\d{8}" inputmode="numeric" required>
                             </div>
 
                             <div class="form-group">
-                                <label>Course</label>
-                                <input type="text" id="stuCourse" required>
+                                <label>College</label>
+                                <select id="stuCollege" required>
+                                        <option value="">Select College</option>
+                                        <option value="1">Br. Andrew Gonzalez FSC College of Education</option>
+                                        <option value="2">Carlos L. Tiu School of Economics</option>
+                                        <option value="3">College of Computer Studies</option>
+                                        <option value="4">College of Liberal Arts</option>
+                                        <option value="5">College of Science</option>
+                                        <option value="6">Gokongwei College of Engineering</option>
+                                        <option value="7">Ramon V. del Rosario College of Business</option>
+                                    </select>
                             </div>
 
                             <div class="form-row">
@@ -122,17 +118,6 @@
                             <div class="form-group">
                                 <label>Description</label>
                                 <textarea id="orgDescription" rows="3" required></textarea>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label>President's Name</label>
-                                    <input type="text" id="orgPresident" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Contact Number</label>
-                                    <input type="tel" id="orgContact" placeholder="+639xxxxxxxxx">
-                                </div>
                             </div>
 
                             <div class="form-row">
