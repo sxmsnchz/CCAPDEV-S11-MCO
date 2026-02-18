@@ -4,7 +4,7 @@ A centralized web application that serves as a unified platform for all DLSU org
 
 ## Project Description
 
-The system allows official organization accounts to create and manage their own profile and publish posts such as announcements and updates. By consolidating organization content into a single platform, the system improves information accessibility and provides the student body with a reliable source of organization-related information. 
+The system allows official organization accounts to create and manage their own profile and publish posts such as announcements and updates. In addition, students can actively engage with organizations by viewing posts, leaving comments, and submitting reviews. By consolidating organization content into a single platform, the system improves information accessibility, encourages interaction between students and organizations, and provides the student body with a reliable and centralized source of organization-related information. 
 
 ## Features
 
